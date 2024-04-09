@@ -1,0 +1,6 @@
+pypdf
+langchain-text-splitters
+langchain
+langchain_community
+docarray
+pydantic==1.10.8
