@@ -1,0 +1,1 @@
+curl -X POST --header "Content-Type: application/json" --data "{\"user_input\": \"Who is the manufacturer of stick vacuum cleaner device?\" }" http://127.0.0.1:8000/chatqa
