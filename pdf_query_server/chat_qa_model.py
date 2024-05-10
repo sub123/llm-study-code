@@ -21,20 +21,15 @@ class chat_qa_class:
         self.model_name = model
 
     def load_model(self):
-        print("Load_model called")
         model = Ollama(model = self.model_name)
         embeddings = OllamaEmbeddings(model = self.model_name)
-        print("Embeddings loaded")
         parser = StrOutputParser()
         prompt = PromptTemplate.from_template(template)
 
-        print("Loadinf pdf")
         loader = PyPDFLoader("user_manual.pdf")
-        print("PDF loaded")
         pages = loader.load_and_split()
         vectorstore = DocArrayInMemorySearch.from_documents(pages, embedding=embeddings)
         retriever = vectorstore.as_retriever()
-        print("retriever done")
         
         self.chain = (
             {
@@ -47,5 +42,4 @@ class chat_qa_class:
         )
 
     def run_inference(self, query):
-        print("inference called")
         return self.chain.invoke({"question" : query})

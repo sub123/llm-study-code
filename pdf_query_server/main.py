@@ -16,8 +16,8 @@ app = FastAPI()
 
 @app.post("/chatqa")
 async def completion(input_data: InferenceInput):
-    print(input_data)
+    print(input_data.user_input)
     res = ''
-    res = chat_qa.run_inference(user_input=input_data.user_input)
+    res = chat_qa.run_inference(query=input_data.user_input)
 
     return InferenceOutput(inference_output=res)

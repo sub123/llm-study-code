@@ -14,7 +14,7 @@ embeddings = OllamaEmbeddings(model = MODEL)
 parser = StrOutputParser()
 
 chain = model | parser
-#print(chain.invoke("Tell me a joke"))
+print(chain.invoke("Tell me a joke"))
 
 loader = PyPDFLoader("user_manual.pdf")
 pages = loader.load_and_split()
